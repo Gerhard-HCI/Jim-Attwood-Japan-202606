@@ -556,12 +556,12 @@ var TRIP = {
         { time:'17:00', type:'restaurant', badge:'Confirmed', badgeType:'confirmed', title:'Yakiniku Yoroniku', sub:'Dinner · Confirmed · 4 covers · 17:00', loc:'Yoroniku, Minami-Aoyama', addr:'Minami-Aoyama, Minato City, Tokyo', q:'https://maps.app.goo.gl/darbZnty4SYxHCq69?g_st=ic', notes:'One of Tokyo\'s most sought-after yakiniku counters — exceptional wagyu grilled course by course. Hands-on and lively, a great fit for Harrison\'s first proper Tokyo dinner. Early 17:00 seating.', alert:'A little charcoal aroma travels home — dress accordingly', dietary:'<strong>Jim:</strong> no organ meats / hormone cuts; no raw beef. <strong>Samantha:</strong> no horse. <strong>Leslie:</strong> no raw or rare meat; no lamb, veal or game; prefers vegetables & seafood. No allergies.' }
       ] },
     { date:'2026-06-27', dayNum:5, weekday:'Saturday, 27 June', city:'Tokyo', cityClass:'', hotel:'The Okura Tokyo', hq:'The Okura Tokyo', hosted:true,
-      notes:'Hosted — Iko Tamura. Private Tokyo city tour (with the family\'s old Roppongi neighbourhoods) · Owl café 15:00 · Sushi Nakano 17:30.',
+      notes:'Hosted — Iko Tamura. Private Tokyo city tour (with the family\'s old Roppongi neighbourhoods) · Owl café 15:00 · Sushi Nakano 17:30 · Patti joins for the day.',
       stops:[
         { time:'9:00', type:'activity', badge:'Confirmed', badgeType:'confirmed', title:'Private Tokyo city tour', sub:'Guide · Iko Tamura · private car', loc:'Tokyo', addr:'Azabudai Hills, Minato City, Tokyo', q:'Azabudai Hills Tokyo', notes:'A private guided day — and a personal one. Jim lived in Tokyo in the late 1980s, in Mamiana-cho near Ark Mori (Goldman Sachs). The route can weave in those old Roppongi and Azabudai haunts — much transformed by the Azabudai Hills development — alongside the classic sights, paced for the family.', alert:'9:00 start · ~4 hours · Iko shapes the route' },
         { time:'~13:00', type:'restaurant', badge:'Suggestion', badgeType:'suggestion', title:'Lunch en route · your choice', sub:'Casual', loc:'Tokyo', addr:'Roppongi, Minato City, Tokyo', q:'restaurant Roppongi Tokyo', notes:'Iko will fit lunch to wherever the morning lands — tonkatsu, tempura, a department-store food hall, or a quiet noodle counter.', alert:null },
         { time:'15:00', type:'activity', badge:'Confirmed', badgeType:'confirmed', title:'Akiba Fukurou · Owl Café', sub:'Private session · 4 guests · 15:00', loc:'Akiba Fukurou, Akihabara', addr:'Akihabara, Taito City, Tokyo', q:'Akiba Fukurou owl cafe Akihabara Tokyo', notes:'A private owl-café session in Akihabara — booked and paid, with a professional photographer for the family. About an hour with the owls before dinner, then on to Sushi Nakano. A sure hit with Harrison.', alert:'Private booking 15:00' },
-        { time:'17:30', type:'restaurant', badge:'Confirmed', badgeType:'confirmed', title:'Sushi Nakano', sub:'Dinner · Confirmed · 4 covers · 17:30', loc:'Sushi Nakano, Tokyo', addr:'Tokyo', q:'Sushi Nakano Tokyo', notes:'A refined Edomae omakase counter to close the Tokyo chapter — Harrison\'s chance for uni and the full progression. Early 17:30 seating.', alert:'No fragrance at the counter · Punctuality essential · pack tonight', dietary:'<strong>Jim:</strong> no raw shrimp, raw crab or raw lobster; no octopus or sea eel (anago); no raw horse. <strong>Samantha:</strong> no octopus or sea eel. <strong>Leslie:</strong> no eel (unagi/anago); no octopus.' }
+        { time:'17:30', type:'restaurant', badge:'Confirmed', badgeType:'confirmed', title:'Sushi Nakano', sub:'Dinner · Confirmed · 4 covers · 17:30', loc:'Sushi Nakano, Tokyo', addr:'Tokyo', q:'Sushi Nakano Tokyo', notes:'A refined Edomae omakase counter to close the Tokyo chapter — Harrison\'s chance for uni and the full progression. Early 17:30 seating.', alert:'No fragrance at the counter · Punctuality essential · pack tonight', dietary:'<strong>Jim:</strong> no raw shrimp, raw crab or raw lobster; no octopus or sea eel (anago); no raw horse. <strong>Samantha:</strong> no octopus or sea eel. <strong>Leslie:</strong> no eel (unagi/anago); no octopus. <strong>Patti (guest):</strong> no octopus.' }
       ] },
     { date:'2026-06-28', dayNum:6, weekday:'Sunday, 28 June', city:'Kyoto', cityClass:'kyoto', hotel:'Hiiragiya Ryokan', hq:'Hiiragiya Ryokan Kyoto', hosted:false,
       notes:'Tokyo → Kyoto by Shinkansen · check in to Hiiragiya · kaiseki dinner included.',
@@ -668,7 +668,10 @@ var DIET = [
       { label:'Notes', class:'', chipClass:'', items:['Adventurous · loves uni'] } ] },
   { name:'Brian Pilchik', tag:'Guest', tagClass:'adult', severe:true, sections:[
       { label:'Strict · kosher — must avoid completely', class:'severe', chipClass:'severe', items:['All shellfish (shrimp, crab, lobster, mussels, oysters, clams, scallops)','All cephalopods (squid, octopus)','Eel — anago & unagi','Sea urchin (uni)','All meat & poultry (beef, pork, chicken, duck, lamb)'] },
-      { label:'Preference', class:'', chipClass:'', items:['Kosher pescatarian','Fish with fins & scales only — tuna, salmon, mackerel, yellowtail, flounder, trout'] } ] }
+      { label:'Preference', class:'', chipClass:'', items:['Kosher pescatarian','Fish with fins & scales only — tuna, salmon, mackerel, yellowtail, flounder, trout'] } ] },
+  { name:'Patti', tag:'Guest · 27 Jun', tagClass:'adult', severe:false, sections:[
+      { label:'Avoid', class:'avoid', chipClass:'avoid', items:['Octopus'] },
+      { label:'Notes', class:'', chipClass:'', items:['Joins for one day (27 June) · eats everything else'] } ] }
 ];
 var DIET_JP = [
   { name:'James (Jim) Attwood · ジム様', nameEn:'Adult guest · no allergies', severe:false, sections:[
@@ -687,7 +690,10 @@ var DIET_JP = [
       { label:'ご参考 · Note', class:'', text:'ウニはお好きです' } ] },
   { name:'Brian Pilchik · ブライアン様', nameEn:'Guest · kosher pescatarian (strict, religious)', severe:true, sections:[
       { label:'宗教上の厳格な制限 · Strict (kosher) — must avoid', class:'severe', text:'甲殻類すべて（海老・蟹・ロブスター・ムール貝・牡蠣・蛤・帆立）· 頭足類（イカ・タコ）· うなぎ・穴子 · ウニ · 肉・鶏肉すべて（牛・豚・鶏・鴨・羊）' },
-      { label:'ご希望 · Preference', class:'', text:'コーシャ（ペスカタリアン）。ヒレと鱗のある魚のみ可（マグロ・鮭・鯖・ハマチ・ヒラメ・鱒）' } ] }
+      { label:'ご希望 · Preference', class:'', text:'コーシャ（ペスカタリアン）。ヒレと鱗のある魚のみ可（マグロ・鮭・鯖・ハマチ・ヒラメ・鱒）' } ] },
+  { name:'Patti · パティ様', nameEn:'Guest · 27 June only · no allergies', severe:false, sections:[
+      { label:'お控えいただきたい食材 · Please avoid', class:'avoid', text:'タコ（蛸）' },
+      { label:'ご参考 · Note', class:'', text:'タコ以外は何でもお召し上がりになります' } ] }
 ];
 
 /* ═══ DISCOVER ═══ */
