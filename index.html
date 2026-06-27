@@ -798,10 +798,10 @@ var toastTm;
 function showToast(msg){var el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTm);toastTm=setTimeout(function(){el.classList.remove('show');},2200);}
 window.copyAddr=function(di,si){
   var stop=TRIP.days[di].stops[si];
-  var txt=(stop.addr&&stop.addr!=='Tokyo'&&stop.addr!=='Kyoto')?stop.addr:stop.loc;
+  var txt=gm(stop.q||stop.loc);
   if(!txt)return;
-  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){showToast('Address copied');});}
-  else{var ta=document.createElement('textarea');ta.value=txt;ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('Address copied');}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(function(){showToast('Map link copied');});}
+  else{var ta=document.createElement('textarea');ta.value=txt;ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showToast('Map link copied');}
 };
 
 /* ═══ CLOCK ═══ */
@@ -841,9 +841,9 @@ function renderStop(stop,di,si){
   var dotClass=isSuggestion?'t-suggestion':('t-'+(stop.type||'restaurant'));
   var cardClass=stop.badgeType==='suggestion'?' is-suggestion':(stop.badgeType==='pending'?' is-pending':'');
   var mapHTML=isActionable&&hasLoc
-    ?'<a href="'+gm(stop.q)+'" target="_blank" rel="noopener" class="map-btn mp">📍 Maps</a>'
-      +'<a href="'+nav(stop.q)+'" target="_blank" rel="noopener" class="map-btn">🧭 Nav</a>'
-      +'<button class="map-btn" onclick="copyAddr('+di+','+si+')">⎘ Copy</button>'
+    ?'<a href="'+gm(stop.q||stop.loc)+'" target="_blank" rel="noopener" class="map-btn mp">📍 Maps</a>'
+      +'<a href="'+nav(stop.q||stop.loc)+'" target="_blank" rel="noopener" class="map-btn">🧭 Nav</a>'
+      +'<button class="map-btn" onclick="copyAddr('+di+','+si+')">⎘ Copy link</button>'
     :'<span class="map-btn map-disabled">📍</span><span class="map-btn map-disabled">🧭</span><span class="map-btn map-disabled">⎘</span>';
   return '<div class="stop-item">'
     +'<div class="stop-time">'+(stop.time?stop.time.replace('~',''):'')+'</div>'
